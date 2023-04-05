@@ -27,9 +27,9 @@ Dar um fork no projeto, clonar o repositório em sua máquina local e criar um b
 
 • Documentação oficial do GitHub: <https://docs.github.com/en/rest>
 
-• Design de tela que deve ser utilizado para a tela Home: <https://marvelapp.com/prototype/9b662g7/screen/76185933/handoff>
+• Design de tela que deve ser utilizado para a tela Home: <https://github.com/makasi-tech/fronteend-challenge/blob/main/tela_home.PNG>
 
-• Design de tela que deve ser utilizado para a tela Perfil: <https://marvelapp.com/prototype/9b662g7/screen/76186368/handoff>
+• Design de tela que deve ser utilizado para a tela Perfil: <https://github.com/makasi-tech/fronteend-challenge/blob/main/tela_perfil.PNG>
 
 ## Observações
 
