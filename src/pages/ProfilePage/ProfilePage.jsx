@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 export default function ProfilePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,12 +29,8 @@ export default function ProfilePage() {
     <>
       {userDetails ? (
         <>
+          <Sidebar user={userDetails}/>
           <h1>Profile Page</h1>
-          <h1>{userDetails.name}</h1>
-          <img src={userDetails.avatar_url} alt={userDetails.name} />
-          <p>{userDetails.bio}</p>
-          <p>Followers: {userDetails.followers}</p>
-          <p>Following: {userDetails.following}</p>
         </>
       ) : (
         <p>Carregando...</p>

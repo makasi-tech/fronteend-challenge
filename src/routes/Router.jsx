@@ -8,7 +8,7 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/perfil/:username" element={<ProfilePage/>} />
+        <Route path="/perfil/:username" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   )
