@@ -10,4 +10,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Lato', sans-serif;
   }
 
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #5e5e5e;
+  }
+
 `;
