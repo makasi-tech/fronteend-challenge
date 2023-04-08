@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToProfilePage } from "../../routes/coordinator";
 import { BsSearch } from "react-icons/bs";
+import { HomePageStyled } from "./styled";
 
 export default function HomePage() {
   const [inputValue, setInputValue] = useState("");
@@ -18,7 +19,9 @@ export default function HomePage() {
   const handleSearchUser = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`https://api.github.com/users/${inputValue}`);
+      const response = await axios.get(
+        `https://api.github.com/users/${inputValue}`
+      );
       setUserData(response.data);
     } catch (error) {
       console.log(error);
@@ -28,16 +31,23 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Search Devs</h1>
-      <input type="text" value={inputValue} onChange={handleInputChange} placeholder="Type the username here..."/>
-      <button onClick={handleSearchUser}>
-        <BsSearch />
-        Search
-      </button>
-      {isLoading && <p>Loading...</p>}
-      {userData && (
-        goToProfilePage(navigate, userData.login)
-      )}
+      <HomePageStyled>
+        <h1>Search Devs</h1>
+        <section>
+          <input
+            type="text"
+            value={inputValue}
+            onChange={handleInputChange}
+            placeholder="Type the username here..."
+          />
+          <button onClick={handleSearchUser}>
+            <BsSearch />
+            Buscar
+          </button>
+          {isLoading && <p>Loading...</p>}
+          {userData && goToProfilePage(navigate, userData.login)}
+        </section>
+      </HomePageStyled>
     </>
-  )
+  );
 }
