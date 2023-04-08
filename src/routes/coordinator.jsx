@@ -3,5 +3,5 @@ export const goToHomePage = (navigate) => {
 };
 
 export const goToProfilePage = (navigate, username) => {
-  navigate(`/profile/${username}`);
+  navigate(`/perfil/${username}`);
 };
