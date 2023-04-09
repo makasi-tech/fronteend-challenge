@@ -3,7 +3,7 @@ import axios from "axios";
 import { goToHomePage } from "../../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 import { IoIosPeople } from "react-icons/io";
-import { AiOutlineHeart, AiOutlineStar } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineStar, AiOutlineMail } from "react-icons/ai";
 import { FaRegBuilding } from "react-icons/fa";
 import { SlLink } from "react-icons/sl";
 import { SlSocialTwitter } from "react-icons/sl";
@@ -63,9 +63,16 @@ export default function Sidebar({ user }) {
                 <FaRegBuilding /> {user.company}
               </h3>
             )}
-            <h3>
-              <IoLocationOutline /> {user.location}
-            </h3>
+            {user.location && (
+              <h3>
+                <IoLocationOutline /> {user.location}
+              </h3>
+            )}
+            {user.email && (
+              <h3>
+                <AiOutlineMail /> {user.email}
+              </h3>
+            )}
             {user.blog && (
               <h3>
                 <a href={user.blog} target="_blank" rel="noopener noreferrer">
