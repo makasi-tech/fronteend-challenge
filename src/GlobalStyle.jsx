@@ -17,4 +17,8 @@ export const GlobalStyle = createGlobalStyle`
     color: #5e5e5e;
   }
 
+  #root {
+    /* width: 58rem; */
+  }
+
 `;

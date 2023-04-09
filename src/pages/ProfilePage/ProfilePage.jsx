@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import CardRepository from "../../components/CardRepository/CardRepository";
+import { ProfilePageStyled } from "./styled";
 
 export default function ProfilePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -45,18 +46,22 @@ export default function ProfilePage() {
 
   return (
     <>
-      {userDetails ? (
-        <>
-          <Sidebar user={userDetails}/>
-          <h1>Profile Page</h1>
-        </>
-      ) : (
-        <p>Carregando...</p>
-      )}
-      {repositories?.map((repository) => {
-        return <CardRepository repository={repository}/>
-      }
-      )}
+      <ProfilePageStyled>
+        <aside>
+          {userDetails ? (
+            <>
+              <Sidebar user={userDetails} />
+            </>
+          ) : (
+            <p>Carregando...</p>
+          )}
+        </aside>
+        <section className="container-repositories">
+          {repositories?.map((repository) => {
+            return <CardRepository repository={repository} />;
+          })}
+        </section>
+      </ProfilePageStyled>
     </>
   );
 }
