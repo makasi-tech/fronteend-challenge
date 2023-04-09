@@ -5,11 +5,12 @@ export const SidebarStyled = styled.aside`
   flex-direction: column;
   background-color: #47525e;
   width: 28rem;
-  height: 100vh;
+  height: calc(100vh - 10px);
+  margin: 5px;
 
   img {
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: auto;
     align-self: center;
     margin-top: 50px;
   }
@@ -69,5 +70,12 @@ export const SidebarStyled = styled.aside`
     color: #5e5e5e;
     border-radius: 5px;
     border: none;
+
+    :hover {
+      background-color: #ffffff;
+    }
+    :active {
+      background-color: #a2a2a2;
+    }
   }
 `;

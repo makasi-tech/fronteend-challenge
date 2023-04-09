@@ -4,7 +4,7 @@ export const CardRepositorySyled = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: 2rem;
+  margin: 1.5rem 4rem;
 
   h1, h4, p {
     color: #5e5e5e;
@@ -13,6 +13,11 @@ export const CardRepositorySyled = styled.div`
   h1 {
     font-size: 1.6rem;
     font-weight: 400;
+  }
+
+  hr{
+    width: 100%;
+    border: 1px solid #e6e6e6;
   }
 
   .container-info {
@@ -25,6 +30,8 @@ export const CardRepositorySyled = styled.div`
     color: #9d9d9d;
     h4 {
       margin-right: 1rem;
+      color: #9d9d9d;
+      font-weight: 400;
     }
   }
 `;

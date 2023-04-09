@@ -19,6 +19,7 @@ export const HomePageStyled = styled.main`
     border: 1px solid #47525e;
     padding-left: 15px;
   }
+
   button {
     display: flex;
     align-items: center;
@@ -32,5 +33,12 @@ export const HomePageStyled = styled.main`
     background-color: #47525e;
     border: none;
     border-radius: 5px;
+
+    :hover {
+      background-color: #66758b;
+    }
+    :active {
+      background-color: #1e2228;
+    }
   }
 `

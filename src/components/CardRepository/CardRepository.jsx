@@ -22,8 +22,7 @@ export default function CardRepository({ repository }) {
               <AiOutlineStar /> {repository.stargazers_count} stars
             </h4>
             <h4>
-              {" "}
-              <RxDotFilled />{" "}
+              <RxDotFilled size={"20px"}/>
             </h4>
             <h4> {updatedText} </h4>
           </section>
