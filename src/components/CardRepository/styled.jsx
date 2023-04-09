@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardRepositorySyled = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 90%;
   margin: 2rem;
 
   h1, h4, p {
