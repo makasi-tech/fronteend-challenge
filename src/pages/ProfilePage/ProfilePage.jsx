@@ -9,6 +9,8 @@ export default function ProfilePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
   const [repositories, setRepositories] = useState([]);
+  const [repositoriesFiltered, setRepositoriesFiltered] = useState([]);
+  const [isSorted, setIsSorted] = useState(false);
 
   const params = useParams();
 
@@ -33,9 +35,14 @@ export default function ProfilePage() {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `https://api.github.com/users/${params.username}/repos?sort=created&direction=desc`
+          `https://api.github.com/users/${params.username}/repos?sort=updated&direction=desc&per_page=100`
         );
-        setRepositories(response.data);
+        const sortedRepositories = response.data.sort(
+          (a, b) => b.stargazers_count - a.stargazers_count
+        );
+        setRepositories(sortedRepositories);
+        setRepositoriesFiltered(sortedRepositories);
+        setIsSorted(true);
       } catch (error) {
         console.log(error);
       }
@@ -57,9 +64,10 @@ export default function ProfilePage() {
           )}
         </aside>
         <section className="container-repositories">
-          {repositories?.map((repository) => {
-            return <CardRepository repository={repository} />;
-          })}
+          {isSorted &&
+            repositoriesFiltered?.map((repository) => {
+              return <CardRepository repository={repository} />;
+            })}
         </section>
       </ProfilePageStyled>
     </>
