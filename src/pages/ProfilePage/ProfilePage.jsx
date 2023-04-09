@@ -17,7 +17,6 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      setIsLoading(true);
       try {
         const response = await axios.get(
           `https://api.github.com/users/${params.username}`
@@ -26,7 +25,6 @@ export default function ProfilePage() {
       } catch (error) {
         console.log(error);
       }
-      setIsLoading(false);
     };
     fetchUser();
   }, []);
