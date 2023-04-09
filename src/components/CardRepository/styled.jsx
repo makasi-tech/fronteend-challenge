@@ -6,6 +6,14 @@ export const CardRepositorySyled = styled.div`
   width: 90%;
   margin: 1.5rem 4rem;
 
+  @media screen and (max-device-width : 30em) {
+    margin: 1.5rem 1rem;
+  }
+
+  @media screen and (min-device-width : 30.063em) and (max-device-width : 50em) {
+    margin: 1.5rem 1rem;
+  }
+
   h1, h4, p {
     color: #5e5e5e;
   }

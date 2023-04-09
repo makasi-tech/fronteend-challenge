@@ -17,7 +17,6 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      setIsLoading(true);
       try {
         const response = await axios.get(
           `https://api.github.com/users/${params.username}`
@@ -26,7 +25,6 @@ export default function ProfilePage() {
       } catch (error) {
         console.log(error);
       }
-      setIsLoading(false);
     };
     fetchUser();
   }, []);
@@ -66,7 +64,7 @@ export default function ProfilePage() {
         </aside>
         {isLoading ? (
           <div className="loading">
-            <SyncLoader size={40} color={"#24292e"} />
+            <SyncLoader size={40} color={"#47525e"} />
           </div>
         ) : (
           <section className="container-repositories">
