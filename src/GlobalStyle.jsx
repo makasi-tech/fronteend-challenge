@@ -10,6 +10,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Lato', sans-serif;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
   h1 {
     font-size: 2.5rem;
     font-weight: 300;

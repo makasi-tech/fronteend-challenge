@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { goToHomePage } from "../../routes/coordinator";
-import { IoIosPeople } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { IoIosPeople,  } from "react-icons/io";
 import { AiOutlineHeart, AiOutlineStar } from "react-icons/ai";
 import { FaRegBuilding } from "react-icons/fa";
-import { GrLocation, GrLink } from "react-icons/gr";
+import { SlLink } from "react-icons/sl";
 import { SlSocialTwitter } from "react-icons/sl";
+import {IoLocationOutline} from 'react-icons/io5'
 import { SidebarStyled } from "./styled";
-import { useNavigate } from "react-router-dom";
 
 export default function Sidebar({ user }) {
   const [starred, setStarred] = useState(0);
@@ -61,11 +62,11 @@ export default function Sidebar({ user }) {
               <FaRegBuilding /> {user.company} organization
             </h3>
             <h3>
-              <GrLocation /> {user.location}
+              <IoLocationOutline /> {user.location}
             </h3>
             <h3>
               <a href={user.blog} target="_blank" rel="noopener noreferrer">
-                <GrLink /> {user.blog}
+                <SlLink /> {user.blog}
               </a>
             </h3>
             <h3>
