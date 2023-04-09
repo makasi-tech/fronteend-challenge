@@ -72,7 +72,7 @@ export default function ProfilePage() {
           <section className="container-repositories">
             {isSorted &&
               repositoriesFiltered?.map((repository) => {
-                return <CardRepository repository={repository} />;
+                return <CardRepository repository={repository} key={repository.id}/>;
               })}
           </section>
         )}
