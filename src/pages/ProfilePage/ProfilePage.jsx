@@ -64,7 +64,7 @@ export default function ProfilePage() {
         </aside>
         {isLoading ? (
           <div className="loading">
-            <SyncLoader size={40} color={"#24292e"} />
+            <SyncLoader size={40} color={"#47525e"} />
           </div>
         ) : (
           <section className="container-repositories">

@@ -8,6 +8,10 @@ export const SidebarStyled = styled.aside`
   height: calc(100vh - 10px);
   margin: 5px;
 
+  @media screen and (min-device-width : 30.063em) and (max-device-width : 50em) {
+    width: 100%;
+  }
+
   img {
     width: 300px;
     height: auto;

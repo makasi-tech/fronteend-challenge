@@ -28,6 +28,13 @@ export const GlobalStyle = createGlobalStyle`
 
   #root {
     /* width: 58rem; */
+    @media screen and (max-device-width : 30em) {
+      width: 100%;
+    }
+
+    @media screen and (min-device-width : 30.063em) and (max-device-width : 50em) {
+      width: 100%;
+    }
   }
 
 `;

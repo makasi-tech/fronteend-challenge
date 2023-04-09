@@ -8,16 +8,31 @@ export const HomePageStyled = styled.main`
   width: 100%;
   height: 100vh;
 
+  @media screen and (max-device-width : 30em) {
+    gap: 18px;
+  }
+
   section {
     display: flex;
+
+    @media screen and (max-device-width : 30em) {
+      flex-direction: column;
+      align-items: center;
+      height: 6rem;
+      justify-content: space-between;
+    }
   }
 
   input {
-    width: 400px;
+    width: 25rem;
     height: 40px;
     border-radius: 5px;
     border: 1px solid #47525e;
     padding-left: 15px;
+
+    @media screen and (max-device-width : 30em) {
+      width: 20rem;
+    }
   }
 
   button {
@@ -39,6 +54,13 @@ export const HomePageStyled = styled.main`
     }
     :active {
       background-color: #1e2228;
+    }
+
+    @media screen and (max-device-width : 30em) {
+      width: 100%;
+      font-size: 1.2rem;
+      justify-content: center;
+      gap: 15px;
     }
   }
 `
