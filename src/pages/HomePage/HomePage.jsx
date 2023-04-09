@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { goToProfilePage } from "../../routes/coordinator";
+import { goToHomePage, goToProfilePage } from "../../routes/coordinator";
 import { BsSearch } from "react-icons/bs";
 import { BeatLoader } from "react-spinners";
 import { HomePageStyled } from "./styled";
@@ -26,8 +26,10 @@ export default function HomePage() {
       setUserData(response.data);
     } catch (error) {
       console.log(error);
+      alert("User not found!")
+      setInputValue("");
     }
-    setIsLoading(false);
+    setIsLoading(false);    
   };
 
   const handleKeyPress = (event) => {
