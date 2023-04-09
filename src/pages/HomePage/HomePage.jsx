@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToProfilePage } from "../../routes/coordinator";
 import { BsSearch } from "react-icons/bs";
+import { BeatLoader } from "react-spinners";
 import { HomePageStyled } from "./styled";
 
 export default function HomePage() {
@@ -41,10 +42,15 @@ export default function HomePage() {
             placeholder="Type the username here..."
           />
           <button onClick={handleSearchUser}>
-            <BsSearch />
-            Buscar
+            {isLoading ? (
+              <BeatLoader size={10} color={"#fff"} />
+            ) : (
+              <>
+                <BsSearch />
+                Buscar
+              </>
+            )}
           </button>
-          {isLoading && <p>Loading...</p>}
           {userData && goToProfilePage(navigate, userData.login)}
         </section>
       </HomePageStyled>
