@@ -14,19 +14,21 @@ export default function CardRepository({ repository }) {
   return (
     <>
       <CardRepositorySyled>
-        <h1>{repository.name}</h1>
-        <p>{repository.description}</p>
-        <section className="container-info">
-          <h4>
-            <AiOutlineStar /> {repository.stargazers_count} stars
-          </h4>
-          <h4>
-            {" "}
-            <RxDotFilled />{" "}
-          </h4>
-          <h4> {updatedText} </h4>
-        </section>
-        <hr />
+        <a href={repository.html_url} target="_blank" rel="noopener noreferrer">
+          <h1>{repository.name}</h1>
+          <p>{repository.description}</p>
+          <section className="container-info">
+            <h4>
+              <AiOutlineStar /> {repository.stargazers_count} stars
+            </h4>
+            <h4>
+              {" "}
+              <RxDotFilled />{" "}
+            </h4>
+            <h4> {updatedText} </h4>
+          </section>
+          <hr />
+        </a>
       </CardRepositorySyled>
     </>
   );
