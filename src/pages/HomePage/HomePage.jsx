@@ -30,6 +30,12 @@ export default function HomePage() {
     setIsLoading(false);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearchUser();
+    }
+  };
+
   return (
     <>
       <HomePageStyled>
@@ -39,6 +45,7 @@ export default function HomePage() {
             type="text"
             value={inputValue}
             onChange={handleInputChange}
+            onKeyDown={handleKeyPress}
             placeholder="Type the username here..."
           />
           <button onClick={handleSearchUser}>
