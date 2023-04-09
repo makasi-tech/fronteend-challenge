@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import CardRepository from "../../components/CardRepository/CardRepository";
+import { SyncLoader } from "react-spinners";
 import { ProfilePageStyled } from "./styled";
 
 export default function ProfilePage() {
@@ -63,12 +64,18 @@ export default function ProfilePage() {
             <p>Carregando...</p>
           )}
         </aside>
-        <section className="container-repositories">
-          {isSorted &&
-            repositoriesFiltered?.map((repository) => {
-              return <CardRepository repository={repository} />;
-            })}
-        </section>
+        {isLoading ? (
+          <div className="loading">
+            <SyncLoader size={40} color={"#24292e"} />
+          </div>
+        ) : (
+          <section className="container-repositories">
+            {isSorted &&
+              repositoriesFiltered?.map((repository) => {
+                return <CardRepository repository={repository} />;
+              })}
+          </section>
+        )}
       </ProfilePageStyled>
     </>
   );

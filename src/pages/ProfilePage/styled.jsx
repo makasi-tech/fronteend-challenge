@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProfilePageStyled = styled.main`
   display: flex;
@@ -17,6 +17,13 @@ export const ProfilePageStyled = styled.main`
     flex-direction: column;
     width: 100%;
     margin-left: 28rem;
-
   }
-`
+
+  .loading {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
