@@ -34,7 +34,11 @@ export default function Sidebar({ user }) {
         <section className="container-info">
           <section>
             <h1>{user.name}</h1>
-            <h3>@{user.login}</h3>
+            <h3>
+              <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+                @{user.login}
+              </a>
+            </h3>
           </section>
           <p>{user.bio}</p>
           <section className="container-icons">
@@ -56,10 +60,14 @@ export default function Sidebar({ user }) {
               <GrLocation /> {user.location}
             </h3>
             <h3>
-              <GrLink /> {user.blog}
+              <a href={user.blog} target="_blank" rel="noopener noreferrer">
+                <GrLink /> {user.blog}
+              </a>
             </h3>
             <h3>
-              <SlSocialTwitter /> @{user.twitter_username}
+              <a href={`https://twitter.com/${user.twitter_username}`} target="_blank" rel="noopener noreferrer">
+                <SlSocialTwitter /> @{user.twitter_username}
+              </a>
             </h3>
           </section>
           <button>Voltar</button>
