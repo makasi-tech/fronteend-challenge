@@ -1,9 +1,14 @@
-import { useParams } from "react-router-dom";
-import { githubInstance } from "@/api/config";
 import useAxios from "@/hooks/useAxios";
+import { useParams, useNavigate } from "react-router-dom";
+import { githubInstance } from "@/api/config";
 import { Sidebar, Repository } from "@/components";
 
 export const Profile = () => {
+  const navigate = useNavigate();
+  const navigation = () => {
+    navigate("/");
+  };
+
   const { username } = useParams();
 
   const [profile, loadingProfile] = useAxios({
@@ -23,7 +28,9 @@ export const Profile = () => {
   let countStars = 0;
   repositories.map((item) => (countStars += item.stargazers_count));
 
-  const repoFilter = repositories.sort((a, b) => b.stargazers_count - a.stargazers_count)
+  const repoFilter = repositories.sort(
+    (a, b) => b.stargazers_count - a.stargazers_count,
+  );
 
   function renderRepo() {
     if (repositories.length === 0) {
@@ -37,8 +44,11 @@ export const Profile = () => {
 
   return (
     <>
+      <button onClick={navigation}>Go Back</button>
       <Sidebar profile={profile} stars={countStars} />
       <section>{renderRepo()}</section>
     </>
   );
 };
+
+
