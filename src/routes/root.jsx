@@ -8,7 +8,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/profile/:username",
+    path: "profile/:username",
     element: <Profile />,
   },
 ]);
