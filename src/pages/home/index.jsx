@@ -1,3 +1,9 @@
+import { SearchForm } from "@/components";
+
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <main>
+      <SearchForm />
+    </main>
+  );
 };
