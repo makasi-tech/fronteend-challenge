@@ -27,9 +27,7 @@ export const Sidebar = ({ profile }) => {
       </div>
       <div className="info-details">
         <h3>{company}</h3>
-        <h3>
-          {location}
-        </h3>
+        <h3>{location}</h3>
         <h3>{blog}</h3>
         <Link to={blog} target="_blank">
           {blog}
@@ -58,5 +56,5 @@ Sidebar.propTypes = {
     email: P.string,
     twitter_username: P.string,
     blog: P.string,
-  }).isRequired,
+  }),
 };
