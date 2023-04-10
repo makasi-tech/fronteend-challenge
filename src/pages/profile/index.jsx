@@ -20,11 +20,16 @@ export const Profile = () => {
 
   if (loadingProfile && loadingRepo) return <p>Loading...</p>;
 
+  let countStars = 0;
+  repositories.map((item) => (countStars += item.stargazers_count));
+
+  const repoFilter = repositories.sort((a, b) => b.stargazers_count - a.stargazers_count)
+
   function renderRepo() {
     if (repositories.length === 0) {
       return <p>{username} doesn’t have any public repositories yet.</p>;
     } else {
-      return repositories.map((repo) => {
+      return repoFilter.map((repo) => {
         return <Repository repo={repo} key={repo.id} />;
       });
     }
@@ -32,7 +37,7 @@ export const Profile = () => {
 
   return (
     <>
-      <Sidebar profile={profile} />
+      <Sidebar profile={profile} stars={countStars} />
       <section>{renderRepo()}</section>
     </>
   );

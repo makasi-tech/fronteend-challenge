@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import P from "prop-types";
-export const Sidebar = ({ profile }) => {
+export const Sidebar = ({ profile, stars }) => {
   const {
     avatar_url,
     name,
@@ -24,6 +24,7 @@ export const Sidebar = ({ profile }) => {
       <div className="social-statics">
         <h3>{followers}</h3>
         <h3>{following}</h3>
+        <h3>{stars}</h3>
       </div>
       <div className="info-details">
         <h3>{company}</h3>
@@ -57,4 +58,5 @@ Sidebar.propTypes = {
     twitter_username: P.string,
     blog: P.string,
   }),
+  stars: P.number,
 };
