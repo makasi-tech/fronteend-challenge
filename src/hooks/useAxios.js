@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function useAxios(configRequest) {
   const { axiosInstance, method, url } = configRequest;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   const run = useRef(false);
 
@@ -17,7 +21,8 @@ export default function useAxios(configRequest) {
       setLoading(false);
       return response.data;
     } catch (error) {
-      console.log(error.message);
+      navigate("/");
+      toast.error("Something went wrong, try again!")
     } finally {
       setLoading(false);
     }
