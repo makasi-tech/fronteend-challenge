@@ -10,6 +10,18 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Lato', sans-serif;
   }
 
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #5e5e5e;
+    border-radius: 8px;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
