@@ -1,5 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useMedia } from "@/hooks/useMedia";
+
+import {
+  RxPerson,
+  RxHeart,
+  RxStar,
+  RxSewingPin,
+  RxEnvelopeClosed,
+  RxTwitterLogo,
+  RxLink2,
+} from "react-icons/rx";
 import P from "prop-types";
+import S from "./sidebar.module.css";
 export const Sidebar = ({ profile, stars }) => {
   const {
     avatar_url,
@@ -15,31 +27,72 @@ export const Sidebar = ({ profile, stars }) => {
     blog,
   } = profile;
 
+  const navigate = useNavigate();
+  const navigation = () => {
+    navigate("/");
+  };
+
+  const mobile = useMedia("(max-width: 320px)");
+
   return (
-    <aside>
-      <img src={avatar_url} />
-      <h1>{name}</h1>
-      <h2>@{login}</h2>
-      <p>{bio}</p>
-      <div className="social-statics">
-        <h3>{followers}</h3>
-        <h3>{following}</h3>
-        <h3>{stars}</h3>
+    <aside className={S.sidebar}>
+      <div className={S.content}>
+        <img src={avatar_url} />
+        <h2 className="fw-regular">{name}</h2>
+        <h2 className="fs-md fw-medium">@{login}</h2>
+        <p>{bio}</p>
+        <ul
+          className={`${S.statistics} fw-regular ${mobile ? "fs-xs" : "fs-sm"}`}
+        >
+          <li className={`${S.icon}`}>
+            <RxPerson />
+            {followers} <strong className="fw-bold">followers</strong>
+          </li>
+          <li className={`${S.icon}`}>
+            <RxHeart />
+            {following} <strong className="fw-bold">followers</strong>
+          </li>
+          <li className={`${S.icon}`}>
+            <RxStar />
+            {stars} <strong className="fw-bold">stars</strong>
+          </li>
+        </ul>
+        <ul className={`${mobile ? "fs-xs" : "fs-sm"} fw-regular`}>
+          <li className={`${S.icon}`}>
+            {company && <RxHeart />}
+            {company}
+          </li>
+          <li className={`${S.icon}`}>
+            {location && <RxSewingPin />}
+            {location}
+          </li>
+          <li className={`${S.icon}`}>
+            {blog && (
+              <Link className={S.link} to={blog} target="_blank">
+                <RxLink2 /> {blog.replace(/^https?:\/\//, "")}
+              </Link>
+            )}
+          </li>
+          <li className={`${S.icon}`}>
+            {twitter_username && (
+              <Link
+                className={S.link}
+                to={`https://twitter.com/${twitter_username}`}
+                target="_blank"
+              >
+                <RxTwitterLogo /> @{twitter_username}
+              </Link>
+            )}
+          </li>
+          <li className={`${S.icon}`}>
+            {email && <RxEnvelopeClosed />}
+            {email}
+          </li>
+        </ul>
       </div>
-      <div className="info-details">
-        <h3>{company}</h3>
-        <h3>{location}</h3>
-        <h3>{blog}</h3>
-        <Link to={blog} target="_blank">
-          {blog}
-        </Link>
-        {twitter_username && (
-          <Link to={`https://twitter.com/${twitter_username}`} target="_blank">
-            @{twitter_username}
-          </Link>
-        )}
-        <h3>{email}</h3>
-      </div>
+      <button className={S.button} onClick={navigation}>
+        Go Back
+      </button>
     </aside>
   );
 };
