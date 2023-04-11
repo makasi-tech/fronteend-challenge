@@ -1,89 +1,102 @@
+# Frontend Challenge from Makasí
 
-## Objetivo do desafio
+O desafio tem como objetivo a criação de uma aplicação em ReactJS que tem como função buscar o perfil de usuários GitHub através de um nome de usuário.
 
-Construir uma aplicação web em ReactJS que atinja o seguinte objetivo: buscar o perfil de desenvolvedores na API pública do GitHub e exibir os seus dados em uma página de perfil.
+Para a aplicação foi utilizado a **API do Github** que dá acesso as informações de cada usuário existente dentro da plataforma, como nome, usuário, sites, localização e também seus repositórios públicos.
 
-## Como começar o desafio
+A aplicação foi então feito com um **design moderno** e uma interface simplificada visando o **melhor conforto** do usuário e uma melhor performace na busca por usuários da plataforma **GitHub**
 
-Dar um fork no projeto, clonar o repositório em sua máquina local e criar um branch novo para o seu código.
+## Tecnologias utilizadas
 
-## Histórias
+**_JavaScript | Typescript | React | React-hook-form | React-icons | React-router-dom | react-toastify | Yup | Vite | Styled-Components | Vercel | Yarn | Node.js_**
 
-• Ao entrar na home page, devo pesquisar o usuário pelo seu username do GitHub e ter os dados do usuário exibidos corretamente na página de perfil.  
+### Motivação para escolha das tecnologias
 
-• Na página de perfil, os repositórios devem ser ordenados com o seguinte critério: dos que tem mais estrelas, para os que tem menos estrelas.  
+A escolha dessas tecnologias se deu por conta da preocupação com a _segurança_ da aplicação e _experiência_ do usuário.
 
-• Os nomes dos repositórios devem ser links que levam ao repositório original do GitHub, em uma página nova.  
+O **Typescript** foi utilizado para uma melhor performace do desenvolvedor durante a criação e manutenção do código.
 
-• Caso o usuário pesquisado possua um site nas informações de seu perfil, o mesmo deve ser aberto em uma nova página. O mesmo deve acontecer caso o usuário pesquisado tenha uma conta no twitter em seu perfil.  
+O **React-router** foi utilizado para fazer a melhor gerenciação entre rotas.
 
-• O botão de voltar deve levar de volta para a home page, para que outro usuário do GitHub seja pesquisado.  
+O **Toastify** e **Yup** foram adicionados para que o usuário não faça uma pesquisa com um input vazio e que seja avisado quando o usuário não existir ou se der erro durante sua requisição.
 
-## Referências
+O **Axios** foi escolhido pois ele fornece uma camada de simplificação para requisições e tratamento de erros.
 
-• API de busca de usuários do GitHub: <https://api.github.com/users/username>
+O **Styled Components** permite a criação de padrões para os estilos que facilita a organização e manutenção do código, sendo preciso apenas mudar o valor das variáveis de estilo.
 
-• API de busca de repositórios do usuário pesquisado: <https://api.github.com/users/username/repos>
+## Funcionalidade
 
-• Documentação oficial do GitHub: <https://docs.github.com/en/rest>
+### Página Home
 
-• Design de tela que deve ser utilizado para a tela Home: <https://github.com/makasi-tech/fronteend-challenge/blob/main/tela_home.PNG>
+Para a página inicial da aplicação temos um campo input de titúlo **Search Devs** onde deve ser colocado um nome de usuário existente.
 
-• Design de tela que deve ser utilizado para a tela Perfil: <https://github.com/makasi-tech/fronteend-challenge/blob/main/tela_perfil.PNG>
+Caso o input esteja vazio o usuário é avisado através de um pequeno texto abaixo do input.
 
-## Observações
+Caso ele digite um usuário não existente ele será avisado do erro atravez de um modal no cando inferior direito da tela.
 
-1. Não é necessário se preocupar com CORS ou implementar um backend para fazer as requisições. A API do Github permite chamadas diretas do navegador.
+E caso o processo seja feito corretamente o usuário será avisado do sucesso através de um modal no canto inferior direito e do redirecionamento para a página de perfil.
 
-2. Caso queira visualizar o payload com a resposta das requisições, recomendamos utilizar o Insomnia para a tarefa. (ou postman, ou postwoman, ou curl, o que preferir).
+### Página Profile
 
-## Requisitos Técnicos para a entrega do teste
+Na página do perfil, existem duas áreas. A primeira se encontra as informações do usuário github pesquisado, como foto de perfil, nome, nome de usuário, biografia, localidade, twitter, site pessoal, seguidores e também um botão de voltar.
 
-• O teste deve ser feito utilizando a library de ReactJS com function components
+A segunda área se encontra uma lista de repositórios ordenada por quantidade de estrelas, com as informações do repositório como, o nome que também é o link para a página daquele repositório, a descrição, numero de estrelas, data da ultima atualização.
 
-• Pode utilizar qualquer boilerplate de sua prefência (CRA, CSA, EruptionJS, ou montar o boilerplate na mão)
+## Executando o projeto
 
-• Pode utilizar qualquer library de CSS e CSS-in-JS. (recomendamos Mantine UI, Material UI, Bootstrap ou Styled Components. Pode fazer com CSS clássico também)
+Clone esse repositório em seu computador:
 
-• Deve-se utilizar rotas com a library react-router-dom, e recomendamos o uso da funcionalidade de history do react-router-dom também
+```bash
+git clone git@github.com:agnes-lica/fronteend-challenge.git
+```
 
-• O teste deve conter duas rotas: a rota “home” da página de busca, e a rota “perfil” que exibe o perfil do usuário pesquisado
+Vá até a pasta do projeto pelo terminal:
 
-• O responsivo – caso queira faze-lo – deve ser levado em 3 considerações: Notebook/Desktop (como um só, resoluções maiores que 1300px width), tablet iPad e celular iPhone 5 (o Chrome Dev Tools possui referência para todos estes dispositivos por padrão)
+```bash
+cd fronteend-challenge
+```
 
-• Caso queira faze-lo, o projeto pode ter uma documentação em readme ensinando a:
+Instale as dependências do projeto:
 
-1. instalar o projeto na máquina (engines, versão de node, qual gerenciador de pacote usar)
-2. instalar as dependências do projeto
-3. rodar o ambiente de desenvolvimento
-4. rodar a build de deploy da aplicação.
+```bash
+yarn
+```
 
-• Ainda na documentação, explicar a sua motivação de escolha das libs e frameworks (ou o motivo de ter feito na mão). Uma explicação sobre a estrutura do projeto também será bem vinda.
+Inicie o servidor:
 
-• Pode utilizar tanto o Axios quanto ou Fetch para requisições.
+```bash
+yarn dev
+```
 
-• Deve ser seguido o layout disponibilizado. Caso queira, pode utilizar uma lib de ícones com ícones semelhantes e relevantes pro contexto da aplicação.
+## Estrutura do projeto
 
-• É imprescindível que o teste desenvolvido funcione corretamente na minha máquina (em qualquer máquina, na real). Inclusive, recomendo que comece codando pela regra de negócio e, depois de finalizado a regra, trabalhe corretamente os components, qualidade de código e layout.
+- **src/**: Aqui ficam todos os arquivos da aplicação
+  - **src/components**: Nessa pasta ficam todos os componentes utilizados no projeto;
+    - **src/components/NavBar**: Aqui ficam os componentes da barra de navegação;
+    - **src/components/Repository**: Aqui ficam os componentes de card dos repositórios.
+  - **src/context**: Nessa pasta fica todos os arquivos de contexto da aplicação;
+    - **src/context/User**: aqui fica os arquivos de contexto apenas para requisição sobre o usuário e repositórios do usuário do gituhub.
+  - **src/pages**: Nessa pasta ficam os arquivos das páginas do projeto;
+    - **src/home**: Aqui ficam os arquivos da página inicial;
+    - **src/profile**: Aqui ficam os arquivos da página de perfil.
+  - **src/routes**: Aqui ficam os arquivos que fazem as manutenções das rotas do projeto;
+  - **src/services**: Aqui ficam os arquivos que definem a url para requisições da API;
+  - **src/styles**: Nessa pasta se concentra todos os padrões de estilos globais da aplicação;
+  - **src/utils**: Aqui ficam arquivos para códigos uteis, como o de organização por estrelas na parte dos repositórios e a verificação de input vazio do yup.
 
-• Testes é um "nice to have".
+## Link do deploy
 
-## Observações importantes
+- [Frontend Challenge](https://fronteend-challenge-agnes-lica.vercel.app/)
 
-A ideia deste desafio é entender como você domina os conceitos básicos de React, com um desafio no mundo real, da forma mais “sincera” possível. E, a partir dele, entender como você traz este conhecimento pra debate com outros profissionais e como você o apresenta como solução técnica que traz valor para um cliente/usuário final num ambiente de trabalho.
+## Links da API e Documentação
 
-Não é pra ser um teste exaustivo - este não é esse o objetivo. Tanto que no teste eu não peço soluções de formulário com CRUD completo e gerenciamento de estados complexos. A regra principal *- e o que mais importa -* é que o teste que você desenvolveu e apresentou, funcione e atenda ao que foi solicitado na história acima.
+- API de busca de usuários do GitHub: https://api.github.com/users/username
+- API de busca de repositórios do usuário pesquisado: https://api.-github.com/users/username/repos
+- Documentação oficial do GitHub: https://docs.github.com/en/rest
 
-Além do que foi pedido nos requisitos técnicos acima, não existe “certo e errado”, da mesma forma que não vamos levar tudo ao pé da letra nos mínimos detalhes.
+## Contato
 
-## Considerações finais
+Para entrar em contato comigo me mande um e-mail ou uma mensagem nas redes sociais:
 
-O que sempre se espera de um profissional front-end, é que ele entenda uma tarefa, a regra de negócio solicitada, seus requisitos técnicos e a apresentação de tela que é esperado para a tarefa. Este são os requisitos mínimos para um profissionai de nível Júnior. Os demais pontos, você deve ser mentorado dentro da empresa e crescer junto dos demais profissionais. *(no cenário ideal de trabalho)*. Acredito que este teste atenda bem estes requisitos.
-
-Esperamos que você vá além do mínimo proposto e demostre o conhecimento que tem. O teste tem gaps propositais para você sugerir soluções, desenvolver ideias e provar na prática o porque a sua decisão pode ter um impacto positivo nessa tarefa.
-
-No demais, o diálogo é sempre bem-vindo e incentivado, principalmente sugestões e discussões.  Caso surjam dúvidas no processo, sintam-se à vontade para nos perguntar.
-
-Boa sorte no teste!
-
-Abraços! o/
+- LinkedIn: https://www.linkedin.com/in/agnesmr/
+- E-mail: agnes.lica@gmail.com
