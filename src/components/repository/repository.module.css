@@ -1,0 +1,38 @@
+.repository h2 {
+    padding-bottom: .5em;
+    padding-top: .5em;
+}
+
+.repository p {
+    padding-top: 1em;
+}
+
+.info {
+    display: flex;
+    gap: 2em;
+    color: var(--clr-300);
+    padding: 1em 0;
+}
+
+.info li {
+    display: flex;
+    align-items: center;
+    gap: .3em;
+}
+
+.line {
+    width: 95%;
+    border-top: 1px solid var(--clr-200);
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:hover, .link:focus {
+    color: var(--clr-300);    
+}
+
+hr {
+    margin-bottom: 1rem;
+}
