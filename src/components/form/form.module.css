@@ -1,0 +1,45 @@
+.form {
+  display: table-cell;
+  width: 30em;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.input {
+  min-height: 40px;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  border: 1px solid var(--clr-400);
+  border-radius: 6px 0 0 6px;
+  background-color: transparent;
+}
+
+.input_group {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.button_submit {
+  display: flex;
+  gap: .3em;
+  place-content: center;
+  align-items: center;
+  width: 30%;
+  min-height: 40px;
+  padding: 0.5em;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: var(--clr-400);
+  color: var(--clr-200);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.input:focus,
+.input:focus-visible {
+  border-color: var(--clr-300);
+  outline: none;
+}
