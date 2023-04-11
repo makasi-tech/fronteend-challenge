@@ -16,6 +16,7 @@
 
 body {
   font-family: var(--ff-sans);
+  background-color: var(--clr-200);
 }
 
 .fw-regular {

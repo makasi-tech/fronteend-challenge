@@ -22,7 +22,9 @@ export default function useAxios(configRequest) {
       return response.data;
     } catch (error) {
       navigate("/");
-      toast.error("Something went wrong, try again!")
+      toast.error("Something went wrong, try again!", {
+        toastId: "error1",
+      });
     } finally {
       setLoading(false);
     }
