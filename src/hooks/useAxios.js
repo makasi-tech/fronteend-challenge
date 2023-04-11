@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -9,14 +9,9 @@ export default function useAxios(configRequest) {
 
   const navigate = useNavigate();
 
-  const run = useRef(false);
-
   const fetchData = async () => {
-    const controller = new AbortController();
     try {
-      const response = await axiosInstance[method](url, {
-        signal: controller.signal,
-      });
+      const response = await axiosInstance[method](url);
       setData(response.data);
       setLoading(false);
       return response.data;
@@ -31,10 +26,7 @@ export default function useAxios(configRequest) {
   };
 
   useEffect(() => {
-    if (run.current) {
-      fetchData();
-    }
-    run.current = true;
+    fetchData();
   }, []);
 
   return [data, loading];
