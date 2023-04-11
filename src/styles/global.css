@@ -1,0 +1,44 @@
+@import "./reset.css";
+
+:root {
+  --clr-100: #ffffff;
+  --clr-200: #f8f8f8;
+  --clr-300: #888888;
+  --clr-400: #1e1e1e;
+
+  --ff-sans: "DM Sans", sans-serif;
+
+  --fs-100: 0.875rem;
+  --fs-200: 1rem;
+  --fs-300: 1.25rem;
+  --fs-400: 2.5rem;
+}
+
+body {
+  font-family: var(--ff-sans);
+}
+
+.fw-regular {
+  font-weight: 300;
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fs-xs {
+  font-size: var(--fs-100);
+}
+.fs-sm {
+  font-size: var(--fs-200);
+}
+.fs-md {
+  font-size: var(--fs-300);
+}
+.fs-lg {
+  font-size: var(--fs-400);
+}
