@@ -2,7 +2,7 @@
   background-color: var(--clr-400);
   color: var(--clr-200);
   display: grid;
-  padding: 2rem;
+  padding: 2em;
 }
 
 .sidebar img {
@@ -37,9 +37,10 @@
   font-weight: 500;
   cursor: pointer;
   margin-top: 1rem;
+  border: none;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 50em) {
   .sidebar {
     max-width: 25em;
     position: fixed;

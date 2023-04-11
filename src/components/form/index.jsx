@@ -8,7 +8,7 @@ export const SearchForm = () => {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState([]);
-  const mobile = useMedia("(max-width: 480px)");
+  const mobile = useMedia("(max-width: 30em)");
 
   const handleSubmit = (e) => {
     e.preventDefault();

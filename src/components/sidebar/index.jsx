@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useMedia } from "@/hooks/useMedia";
-
 import {
   RxPerson,
   RxHeart,
@@ -10,6 +9,7 @@ import {
   RxTwitterLogo,
   RxLink2,
 } from "react-icons/rx";
+import { HiOutlineBuildingOffice } from "react-icons/hi2";
 import P from "prop-types";
 import S from "./sidebar.module.css";
 export const Sidebar = ({ profile, stars }) => {
@@ -32,18 +32,18 @@ export const Sidebar = ({ profile, stars }) => {
     navigate("/");
   };
 
-  const mobile = useMedia("(max-width: 320px)");
+  const mobile = useMedia("(max-width: 20em)");
 
   return (
     <aside className={S.sidebar}>
       <div className={S.content}>
-        <img src={avatar_url} />
+        <img src={avatar_url} alt={`${login} user avatar`} />
         <h2 className="fw-regular">{name}</h2>
         <h2 className="fs-md fw-medium">@{login}</h2>
         <p>{bio}</p>
         <ul
           className={`${S.statistics} fw-regular ${mobile ? "fs-xs" : "fs-sm"}`}
-        >
+          role="list">
           <li className={`${S.icon}`}>
             <RxPerson />
             {followers} <strong className="fw-bold">followers</strong>
@@ -57,9 +57,9 @@ export const Sidebar = ({ profile, stars }) => {
             {stars} <strong className="fw-bold">stars</strong>
           </li>
         </ul>
-        <ul className={`${mobile ? "fs-xs" : "fs-sm"} fw-regular`}>
+        <ul className={`${mobile ? "fs-xs" : "fs-sm"} fw-regular`} role="list">
           <li className={`${S.icon}`}>
-            {company && <RxHeart />}
+            {company && <HiOutlineBuildingOffice />}
             {company}
           </li>
           <li className={`${S.icon}`}>

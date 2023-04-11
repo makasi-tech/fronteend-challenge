@@ -7,30 +7,45 @@ import { Link } from "react-router-dom";
 export const Repository = ({ repo }) => {
   const { name, description, stargazers_count, updated_at, html_url } = repo;
 
-  const updated = updated_at.substring(0, 10);
-  const givenDate = new Date(updated);
-  const days = Math.ceil((Date.now() - givenDate) / (1000 * 60 * 60 * 24));
-  const timeAgo =
-    days >= 30 ? `${Math.floor(days / 30)} months` : `${days} days`;
+  function timeAgo(date) {
+    const givenDate = new Date(date);
+    const diff = Date.now() - givenDate.getTime();
+    const units = [
+      { label: "year", divisor: 31536000000 },
+      { label: "month", divisor: 2592000000 },
+      { label: "day", divisor: 86400000 },
+      { label: "hour", divisor: 3600000 },
+      { label: "minute", divisor: 60000 },
+      { label: "second", divisor: 1000 },
+    ];
+    const { label, divisor } =
+      units.find(({ divisor }) => diff >= divisor) || units[units.length - 1];
+    const value = Math.floor(diff / divisor);
+    return `${value} ${label}${value > 1 ? "s" : ""}`;
+  }
 
-  const mobile = useMedia("(max-width: 320px)");
+  const mobile = useMedia("(max-width: 20em)");
   return (
-    <ul className={S.repository} role="list">
-      <li>
-        <Link className={`${S.link} fw-bold fs-md`} to={html_url} target="_blank">
-          {name}
-        </Link>
-      </li>
-      <p>{description}</p>
-      <ul className={`${S.info} ${mobile ? "fs-xs" : "fs-sm"}`}>
+      <ul className={S.repository} role="list">
         <li>
-          <RxStar />
-          {stargazers_count} stars
+          <Link
+            className={`${S.link} fw-bold fs-md`}
+            to={html_url}
+            target="_blank"
+          >
+            {name}
+          </Link>
         </li>
-        <li>● Updated {timeAgo} ago</li>
+        <p>{description}</p>
+        <ul className={`${S.info} ${mobile ? "fs-xs" : "fs-sm"}`} role="list">
+          <li>
+            <RxStar />
+            {stargazers_count} stars
+          </li>
+          <li>● Updated {timeAgo(updated_at.substring(0, 10))} ago</li>
+        </ul>
+        <hr className={S.line} />
       </ul>
-      <hr className={S.line} />
-    </ul>
   );
 };
 
