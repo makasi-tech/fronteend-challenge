@@ -13,7 +13,7 @@ import { Link } from "./style";
 import { UserContext } from "../../context/User/gitUserContext";
 
 //Utils import
-import { starCount } from "../../utils/stargazersCount";
+import { starCount } from "../../utils/stargazers_count";
 
 export const Repository = (): JSX.Element => {
   const { userRepos, gitUser } = useContext(UserContext);
@@ -40,7 +40,7 @@ export const Repository = (): JSX.Element => {
           <PointsContainer>
             <Text as="p" type="h4" color="DarkLigthGrey">
               <BsFillStarFill size={18} />
-              {`${repo?.stargazersCount}`}
+              {`${repo?.stargazers_count}`}
             </Text>
             <Text as="p" type="h4" color="DarkLigthGrey">
               •{`${repo?.updated_at}`}

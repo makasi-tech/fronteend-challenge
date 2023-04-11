@@ -16,7 +16,7 @@ export const Input = styled("input", {
 
   ...bodyDefaultConfig,
   "@mobile": {
-    width: "20rem",
+    width: "15rem",
     color: "$secondary",
   },
 });

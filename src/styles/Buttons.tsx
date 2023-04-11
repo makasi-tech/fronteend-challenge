@@ -12,7 +12,7 @@ export const Button = styled("button", {
   fontWeight: "600",
   padding: "0 2rem",
   border: "transparent",
-  borderRadius: "OneGap",
+  borderRadius: "$medium",
   cursor: "pointer",
   fontSize: "1rem",
   fontFamily: "$texts",
@@ -36,6 +36,9 @@ export const Button = styled("button", {
         "&:hover": {
           border: "3px solid $secondary",
           borderColor: "$secondary",
+        },
+        "@mobile": {
+          width: "6rem",
         },
       },
     },

@@ -1,6 +1,6 @@
 interface IStarCount {
-  stargazersCount: number;
+  stargazers_count: number;
 }
 
 export const starCount = (atualRepo: IStarCount, nextRepo: IStarCount) =>
-  nextRepo.stargazersCount - atualRepo.stargazersCount;
+  nextRepo.stargazers_count - atualRepo.stargazers_count;

@@ -37,7 +37,7 @@ interface IRepo {
   name: string;
   description: string;
   updated_at: string;
-  stargazersCount: number;
+  stargazers_count: number;
   url: string;
 }
 
@@ -106,7 +106,7 @@ const UserProvider = ({ children }: IProviderChildren) => {
               .split("-")
               .reverse()
               .join("-"),
-            stargazersCount: repo.stargazersCount,
+            stargazers_count: repo.stargazers_count,
             url: repo.url,
           })
         );

@@ -14,7 +14,7 @@ export const UserArea = styled("aside", {
   width: "32%",
   display: "flex",
   flexDirection: "column",
-  gap: "$HalfGap",
+  gap: "$small",
   position: "sticky",
   top: "0rem",
   padding: "2rem",

@@ -17,23 +17,23 @@ export const Container = styled("div", {
 export const Flex = styled("div", {
   display: "flex",
   justifyContent: "center",
-  gap: "$HalfGap",
+  gap: "$small",
   marginBottom: ".5rem",
   "@mobile": {
     justifyContent: "left",
   },
 });
 
-export const PointsContainer = styled(Flex, {
+export const PointsContainer = styled("div", {
   display: "flex",
   flexDirection: "row",
   justifyContent: "left",
-  gap: "$OneGap",
+  gap: "2rem",
 });
 
 export const SearchContainer = styled(Flex, {
   flexDirection: "row",
-  gap: "$ZeroGap",
+  gap: "$none",
 });
 
 export const RepoCards = styled("div", {
@@ -41,7 +41,7 @@ export const RepoCards = styled("div", {
   flexDirection: "column",
   borderBottom: "1px solid $DarkLigthGrey",
   paddingTop: "1rem",
-  gap: "$HalfGap",
+  gap: ".5rem",
 });
 
 export const colors = {
@@ -106,9 +106,10 @@ export const GlobalStyle: React.FC<GlobalStyleProps> = ({ children }) => {
       container: "85rem",
     },
     spaceGap: {
-      HalfGap: "0.5rem",
-      OneGap: "1rem",
-      ZeroGap: "2rem",
+      small: "0.5rem",
+      medium: "1rem",
+      big: "2rem",
+      none: "0rem",
     },
     fonts: {
       titles: '"Lexend", sans-serif;',
