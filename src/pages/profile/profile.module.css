@@ -1,0 +1,11 @@
+.content {
+    padding: 2rem;
+}
+
+@media (min-width: 800px) {
+  .content {
+    padding-left: 27em;
+    padding-top: 2em;
+    padding-right: 1em;
+  }
+}

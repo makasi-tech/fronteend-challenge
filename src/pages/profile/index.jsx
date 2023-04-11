@@ -1,14 +1,10 @@
 import useAxios from "@/hooks/useAxios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { githubInstance } from "@/api/config";
 import { Sidebar, Repository } from "@/components";
+import S from "./profile.module.css";
 
 export const Profile = () => {
-  const navigate = useNavigate();
-  const navigation = () => {
-    navigate("/");
-  };
-
   const { username } = useParams();
 
   const [profile, loadingProfile] = useAxios({
@@ -43,12 +39,9 @@ export const Profile = () => {
   }
 
   return (
-    <>
-      <button onClick={navigation}>Go Back</button>
+    <main className={S.main}>
       <Sidebar profile={profile} stars={countStars} />
-      <section>{renderRepo()}</section>
-    </>
+      <section className={S.content}>{renderRepo()}</section>
+    </main>
   );
 };
-
-
