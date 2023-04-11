@@ -1,11 +1,22 @@
 .content {
-    padding: 2rem;
+  padding: 2em;
+  display: grid;
+  align-items: center;
+  margin: 0 auto;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 50em) {
   .content {
     padding-left: 27em;
     padding-top: 2em;
     padding-right: 1em;
+    height: 100vh;
   }
+}
+
+.placeholder {
+  text-align: center;
+  color: var(--clr-300);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }

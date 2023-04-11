@@ -1,7 +1,7 @@
 import useAxios from "@/hooks/useAxios";
 import { useParams } from "react-router-dom";
 import { githubInstance } from "@/api/config";
-import { Sidebar, Repository } from "@/components";
+import { Sidebar, Repository, Loading, Skeleton } from "@/components";
 import S from "./profile.module.css";
 
 export const Profile = () => {
@@ -19,7 +19,7 @@ export const Profile = () => {
     url: `${username}/repos`,
   });
 
-  if (loadingProfile && loadingRepo) return <p>Loading...</p>;
+  if (loadingProfile) return <Loading />;
 
   let countStars = 0;
   repositories.map((item) => (countStars += item.stargazers_count));
@@ -29,8 +29,16 @@ export const Profile = () => {
   );
 
   function renderRepo() {
+    if (loadingRepo) {
+      return [...Array(10).keys()].map((i) => <Skeleton key={i} />);
+    }
     if (repositories.length === 0) {
-      return <p>{username} doesn’t have any public repositories yet.</p>;
+      return (
+        <p className={`${S.placeholder} fs-xs`}>
+          <strong className="fw-bold">{username}</strong> doesn’t have any
+          public repositories yet.
+        </p>
+      );
     } else {
       return repoFilter.map((repo) => {
         return <Repository repo={repo} key={repo.id} />;
