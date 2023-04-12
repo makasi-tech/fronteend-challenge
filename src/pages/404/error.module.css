@@ -1,0 +1,26 @@
+.main {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  place-items: center;
+}
+
+.main h1 {
+  font-size: 4rem;
+  color: var(--clr-300);
+  text-align: center;
+}
+
+.main p {
+  color: var(--clr-400);
+}
+
+.main button {
+  background-color: var(--clr-300);
+  border: none;
+  padding: 0.5em;
+  margin-top: 1em;
+  color: var(--clr-200);
+  border-radius: 0.5em;
+  cursor: pointer;
+}
